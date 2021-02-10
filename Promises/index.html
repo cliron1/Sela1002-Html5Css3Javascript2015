@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="invoke(true)">Resolve</button>
+    <button onclick="invoke(false)">Reject</button>
+
+    <div id="basic_result"></div>
+
+    <hr />
+
+    <div>
+        <input type="url" id="fetch_url" value="http://127.0.0.1:8080/files/data.json" />
+        <button onclick="do_fetch()">Fetch</button>
+
+        <ul id="fetch_result">
+        </ul>
+    </div>
+
+    <pre id="pre"></pre>
+
+    <script src="basic.js" type="text/javascript"></script>
+    <script src="fetch.js" type="text/javascript"></script>
+</body>
+
+</html>

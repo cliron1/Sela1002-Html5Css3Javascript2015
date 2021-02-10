@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Reader - Text example</title>
+
+    <style>
+        input[type="file"] {
+            padding: 20px;
+            border: 3px dotted red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>File Reader - Text example</h1>
+
+    <div>
+        <input type="file" id="theTextFile" onchange="onLoadTextFile()" />
+    </div>
+    <textarea id="result" rows="30" cols="100"></textarea>
+
+    <script type="text/javascript">
+        function onLoadTextFile() {
+            const theFileElem = document.getElementById('theTextFile');
+            if (theFileElem.files.length > 0 && theFileElem.files[0].type.match(/text.*/i)) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    //console.log('success... here is the event: ', event);
+                    const resultElem = document.getElementById('result');
+                    resultElem.value = event.target.result;
+
+                }
+                reader.onerror = function() {
+                    alert("Cannot load the text file");
+                }
+
+                // read the file!!
+                reader.readAsText(theFileElem.files[0], 'utf-8');
+
+            } else {
+                alert("Please select a text file");
+            }
+        }
+    </script>
+</body>
+
+</html>

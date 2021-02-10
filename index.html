@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet" src="sheker.css" /> -->
+    <style>
+        body {
+            font-family: opensans;
+            margin: 0;
+            padding: 0;
+            background: yellow;
+            font-size: 50px;
+        }
+        
+        div {
+            cursor: crosshair;
+            background: red;
+        }
+        
+        @font-face {
+            font-family: opensans;
+            src: url('fonts/OpenSans-Regular.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        About
+    </div>
+
+
+    <form action="http://localhost:63460/Home/RegistrationForm" method="post">
+        <div>
+            <label style="width: 120px;">First Name:</label>
+            <input name="FirstName" placeholder="First name" />
+        </div>
+        <div>
+            <label style="width: 120px;">Last Name:</label>
+            <input name="LastName" placeholder="Enter yout last name" />
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>

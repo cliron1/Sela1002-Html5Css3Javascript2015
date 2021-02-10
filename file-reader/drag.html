@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag sample</title>
+
+    <style>
+        .drop_zone {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+        
+        .drop_zone img {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Drag the image into the rectangle:</p>
+
+    <div class="drop_zone" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img id="drag1" src="https://avatars.githubusercontent.com/u/25368764?v=4" draggable="true" ondragstart="drag(event)" />
+    </div>
+
+    <div class="drop_zone" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+
+
+
+    <script>
+        function allowDrop(e) {
+            e.preventDefault();
+        }
+
+        function drag(e) {
+            e.dataTransfer.setData("text", e.target.id);
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            var data = e.dataTransfer.getData("text");
+            const elem = document.getElementById(data);
+            e.target.appendChild(elem);
+
+            // var nodeCopy = elem.cloneNode(true);
+            // nodeCopy.id = "newId";
+            // /* We cannot use the same ID */
+            // e.target.appendChild(nodeCopy);
+        }
+    </script>
+
+</body>
+
+</html>

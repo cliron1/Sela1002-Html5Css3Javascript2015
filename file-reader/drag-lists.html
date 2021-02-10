@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        body {
+            font-size: 28px;
+        }
+        
+        ul {
+            float: left;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 10px;
+            width: 150px;
+            min-height: 250px;
+            border: 1px solid #000;
+        }
+        
+        ul li {
+            margin: 5px;
+            padding: 5px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul ondrop="drop(event)" ondragover="allowDrop(event)">
+        <li id="li1" draggable="true" ondragstart="drag(event)">C#</li>
+        <li id="li2" draggable="true" ondragstart="drag(event)">Angular</li>
+        <li id="li3" draggable="true" ondragstart="drag(event)">Html 5</li>
+        <li id="li4" draggable="true" ondragstart="drag(event)">Css 3</li>
+        <li id="li5" draggable="true" ondragstart="drag(event)">Javascript</li>
+    </ul>
+    <ul ondrop="drop(event)" ondragover="allowDrop(event)">
+    </ul>
+
+    <script>
+        function allowDrop(e) {
+            e.preventDefault();
+        }
+
+        function drag(e) {
+            e.dataTransfer.setData("text", e.target.id);
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            var data = e.dataTransfer.getData("text");
+            const elem = document.getElementById(data);
+            e.target.appendChild(elem);
+        }
+    </script>
+</body>
+
+</html>

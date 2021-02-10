@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: arial;
+            font-size: 18px;
+        }
+        
+        button {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="vid" controls autoplayX muted="true" poster="files//logo.png">
+		<!-- Mime -->
+		<source  src="files/Sample.mp4" type="video/mp4" />
+		<source  src="files/Sample.ogg" type="video/ogg" />
+		<p>Video is not supported &#142365;</p>
+	</video>
+
+    <div>
+        <button id="btn">Play / Pause</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+
+    <script>
+        const vid = document.getElementById('vid');
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', toggle);
+
+        function toggle() {
+            //console.log(vid.paused);
+            if (vid.paused) {
+                vid.play();
+            } else {
+                vid.pause();
+            }
+        }
+
+        function stop() {
+            vid.pause();
+            vid.currentTime = 0;
+        }
+    </script>
+
+</body>
+
+</html>
